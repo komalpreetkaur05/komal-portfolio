@@ -64,12 +64,12 @@ export default function ContactPage() {
               color: "#333",
               marginBottom: "10px"
             }}>Email</h3>
-            <a href="mailto:your.email@example.com" style={{
+            <a href="mailto:komalpreetk1104@gmail.com" style={{
               color: "#667eea",
               textDecoration: "none",
               fontSize: "1rem"
             }}>
-              your.email@example.com
+              komalpreetk1104@gmail.com
             </a>
           </div>
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
               color: "#333",
               marginBottom: "10px"
             }}>LinkedIn</h3>
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://www.linkedin.com/in/komalpreetkaur1104" target="_blank" rel="noopener noreferrer" style={{
               color: "#667eea",
               textDecoration: "none",
               fontSize: "1rem"
@@ -116,7 +116,7 @@ export default function ContactPage() {
               color: "#333",
               marginBottom: "10px"
             }}>GitHub</h3>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://github.com/komalpreetkaur05" target="_blank" rel="noopener noreferrer" style={{
               color: "#667eea",
               textDecoration: "none",
               fontSize: "1rem"
