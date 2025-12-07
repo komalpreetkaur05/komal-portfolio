@@ -68,7 +68,7 @@
 
 .pageContainer {
   min-height: 100vh;
-  background: #f8f9fa;
+  background: linear-gradient(15deg, #889bef 0%, #764ba2 100%);
   padding: 60px 20px;
 }
 
@@ -80,14 +80,14 @@
 .pageTitle {
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
-  color: #333;
+  color: white;
   margin-bottom: 20px;
   text-align: center;
 }
 
 .pageSubtitle {
   font-size: 1.2rem;
-  color: #666;
+  color: #e0e0e0;
   text-align: center;
   line-height: 1.6;
   max-width: 700px;
