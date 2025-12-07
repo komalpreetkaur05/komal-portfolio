@@ -13,7 +13,8 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "/contact", label: "Contact" },
+    { href: "/testimonials", label: "Testimonials" },
+    { href: "/contact", label: "Contact" }
   ];
 
   return (
@@ -37,8 +38,8 @@ export default function Navbar() {
         textDecoration: "none",
         transition: "color 0.3s ease"
       }}
-      onMouseEnter={(e) => e.currentTarget.style.color = "#764ba2"}
-      onMouseLeave={(e) => e.currentTarget.style.color = "#667eea"}>
+        onMouseEnter={(e) => e.currentTarget.style.color = "#764ba2"}
+        onMouseLeave={(e) => e.currentTarget.style.color = "#667eea"}>
         KK
       </Link>
 
@@ -48,7 +49,7 @@ export default function Navbar() {
         gap: "30px",
         alignItems: "center"
       }}
-      className="desktop-menu">
+        className="desktop-menu">
         {links.map((link) => (
           <Link
             key={link.href}
@@ -113,7 +114,7 @@ export default function Navbar() {
           padding: "20px",
           display: "none"
         }}
-        className="mobile-menu">
+          className="mobile-menu">
           {links.map((link) => (
             <Link
               key={link.href}
