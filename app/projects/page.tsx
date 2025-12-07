@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
             View Project
           </a>
         )}
-        
+
         {project.github && (
           <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.button} style={{ color: "#667eea", borderColor: "#667eea" }}>
             GitHub
@@ -88,42 +88,17 @@ export default function ProjectsPage() {
   ];
 
   return (
-    <div style={{
-      minHeight: "100vh",
-      background: "#f8f9fa",
-      padding: "60px 20px"
-    }}>
-      <div style={{
-        maxWidth: "1200px",
-        margin: "0 auto"
-      }}>
-        <h1 style={{
-          fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-          fontWeight: "700",
-          color: "#333",
-          marginBottom: "20px",
-          textAlign: "center"
-        }}>
+    <div className={styles.pageContainer}>
+      <div className={styles.contentWrapper}>
+        <h1 className={styles.pageTitle}>
           My Projects
         </h1>
-        
-        <p style={{
-          fontSize: "1.2rem",
-          color: "#666",
-          textAlign: "center",
-          marginBottom: "50px",
-          lineHeight: "1.6",
-          maxWidth: "700px",
-          margin: "0 auto 50px"
-        }}>
+
+        <p className={styles.pageSubtitle}>
           Here are some of the projects I've worked on, showcasing my skills in full-stack development, mobile apps, and web technologies.
         </p>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-          gap: "30px"
-        }}>
+        <div className={styles.projectsGrid}>
           {realProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
