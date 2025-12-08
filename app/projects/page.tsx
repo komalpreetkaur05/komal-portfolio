@@ -39,7 +39,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         )}
 
         {project.github && (
-          <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.button} style={{ color: "#667eea", borderColor: "#667eea" }}>
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className={styles.button} style={{ color: "#667eea", borderColor: "#667eea", borderStyle: "solid" }}>
             GitHub
           </a>
         )}
