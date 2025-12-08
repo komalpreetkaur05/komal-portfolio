@@ -1,126 +1,47 @@
 // Contact Page (app/contact/page.tsx)
 import ContactForm from "@/components/ContactForm";
+import styles from './contact.module.css';
 
 export default function ContactPage() {
   return (
-    <div style={{
-      minHeight: "100vh",
-      background: "#f8f9fa",
-      padding: "60px 20px"
-    }}>
-      <div style={{
-        maxWidth: "900px",
-        margin: "0 auto"
-      }}>
+    <div className={styles.pageContainer}>
+      <div className={styles.contentWrapper}>
         {/* Page Title */}
-        <h1 style={{
-          fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-          fontWeight: "700",
-          color: "#333",
-          marginBottom: "20px",
-          textAlign: "center"
-        }}>
+        <h1 className={styles.pageTitle}>
           Get in Touch
         </h1>
-        
-        <p style={{
-          fontSize: "1.2rem",
-          color: "#666",
-          textAlign: "center",
-          marginBottom: "50px",
-          lineHeight: "1.6"
-        }}>
+
+        <p className={styles.pageSubtitle}>
           Have a project in mind or want to collaborate? I'd love to hear from you!
         </p>
 
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "40px",
-          marginBottom: "50px"
-        }}>
-          {/* Contact Form */}
-          <div style={{
-            gridColumn: "1 / -1"
-          }}>
-            <ContactForm />
-          </div>
+        {/* Contact Form */}
+        <div className={styles.formWrapper}>
+          <ContactForm />
+        </div>
 
-          {/* Contact Info Cards */}
-          <div style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
-            textAlign: "center"
-          }}>
-            <div style={{
-              fontSize: "2.5rem",
-              marginBottom: "15px"
-            }}>📧</div>
-            <h3 style={{
-              fontSize: "1.2rem",
-              fontWeight: "600",
-              color: "#333",
-              marginBottom: "10px"
-            }}>Email</h3>
-            <a href="mailto:komalpreetk1104@gmail.com" style={{
-              color: "#667eea",
-              textDecoration: "none",
-              fontSize: "1rem"
-            }}>
+        {/* Contact Info Cards */}
+        <div className={styles.gridContainer}>
+          <div className={styles.contactCard}>
+            <div className={styles.icon}>📧</div>
+            <h3 className={styles.cardTitle}>Email</h3>
+            <a href="mailto:komalpreetk1104@gmail.com" className={styles.cardLink}>
               komalpreetk1104@gmail.com
             </a>
           </div>
 
-          <div style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
-            textAlign: "center"
-          }}>
-            <div style={{
-              fontSize: "2.5rem",
-              marginBottom: "15px"
-            }}>💼</div>
-            <h3 style={{
-              fontSize: "1.2rem",
-              fontWeight: "600",
-              color: "#333",
-              marginBottom: "10px"
-            }}>LinkedIn</h3>
-            <a href="https://www.linkedin.com/in/komalpreetkaur1104" target="_blank" rel="noopener noreferrer" style={{
-              color: "#667eea",
-              textDecoration: "none",
-              fontSize: "1rem"
-            }}>
+          <div className={styles.contactCard}>
+            <div className={styles.icon}>💼</div>
+            <h3 className={styles.cardTitle}>LinkedIn</h3>
+            <a href="https://www.linkedin.com/in/komalpreetkaur1104" target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
               Connect with me
             </a>
           </div>
 
-          <div style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "12px",
-            boxShadow: "0 4px 15px rgba(0, 0, 0, 0.08)",
-            textAlign: "center"
-          }}>
-            <div style={{
-              fontSize: "2.5rem",
-              marginBottom: "15px"
-            }}>🔗</div>
-            <h3 style={{
-              fontSize: "1.2rem",
-              fontWeight: "600",
-              color: "#333",
-              marginBottom: "10px"
-            }}>GitHub</h3>
-            <a href="https://github.com/komalpreetkaur05" target="_blank" rel="noopener noreferrer" style={{
-              color: "#667eea",
-              textDecoration: "none",
-              fontSize: "1rem"
-            }}>
+          <div className={styles.contactCard}>
+            <div className={styles.icon}>🔗</div>
+            <h3 className={styles.cardTitle}>GitHub</h3>
+            <a href="https://github.com/komalpreetkaur05" target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
               View my work
             </a>
           </div>

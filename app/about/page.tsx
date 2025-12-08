@@ -8,7 +8,7 @@ export default function AboutPage() {
     }}>
       {/* Hero Section */}
       <section style={{
-        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        background: "linear-gradient(15deg, #667eea 0%, #764ba2 100%)",
         padding: "20px 20px 60px",
         color: "white",
         textAlign: "center"
