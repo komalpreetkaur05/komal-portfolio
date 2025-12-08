@@ -23,9 +23,9 @@ export default function Navbar() {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      background: "rgba(255, 255, 255, 0.95)",
+      background: "black",
       backdropFilter: "blur(10px)",
-      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.2)",
       position: "sticky",
       top: 0,
       zIndex: 1000
@@ -34,12 +34,12 @@ export default function Navbar() {
       <Link href="/" style={{
         fontSize: "1.5rem",
         fontWeight: "700",
-        color: "#667eea",
+        color: "white",
         textDecoration: "none",
-        transition: "color 0.3s ease"
+        transition: "opacity 0.3s ease"
       }}
-        onMouseEnter={(e) => e.currentTarget.style.color = "#764ba2"}
-        onMouseLeave={(e) => e.currentTarget.style.color = "#667eea"}>
+        onMouseEnter={(e) => e.currentTarget.style.opacity = "0.8"}
+        onMouseLeave={(e) => e.currentTarget.style.opacity = "1"}>
         KK
       </Link>
 
@@ -55,20 +55,20 @@ export default function Navbar() {
             key={link.href}
             href={link.href}
             style={{
-              color: pathname === link.href ? "#667eea" : "#333",
+              color: pathname === link.href ? "white" : "#e0e0e0",
               textDecoration: "none",
               fontSize: "1rem",
-              fontWeight: pathname === link.href ? "600" : "500",
+              fontWeight: pathname === link.href ? "700" : "500",
               position: "relative",
               padding: "5px 0",
               transition: "color 0.3s ease"
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.color = "#667eea";
+              e.currentTarget.style.color = "white";
             }}
             onMouseLeave={(e) => {
               if (pathname !== link.href) {
-                e.currentTarget.style.color = "#333";
+                e.currentTarget.style.color = "#e0e0e0";
               }
             }}>
             {link.label}
@@ -96,7 +96,7 @@ export default function Navbar() {
           border: "none",
           fontSize: "1.5rem",
           cursor: "pointer",
-          color: "#667eea"
+          color: "white"
         }}
         className="mobile-menu-btn">
         {isMenuOpen ? "✕" : "☰"}
@@ -109,7 +109,7 @@ export default function Navbar() {
           top: "100%",
           left: 0,
           right: 0,
-          background: "white",
+          background: "rgb(28, 25, 44)",
           boxShadow: "0 4px 10px rgba(0, 0, 0, 0.1)",
           padding: "20px",
           display: "none"
@@ -123,7 +123,7 @@ export default function Navbar() {
               style={{
                 display: "block",
                 padding: "15px 0",
-                color: pathname === link.href ? "#667eea" : "#333",
+                color: pathname === link.href ? "white" : "#e0e0e0",
                 textDecoration: "none",
                 fontSize: "1.1rem",
                 fontWeight: pathname === link.href ? "600" : "500",
