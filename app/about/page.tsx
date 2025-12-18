@@ -108,7 +108,7 @@ export default function AboutPage() {
               color: "#888",
               marginBottom: "15px"
             }}>
-              2023 - 2025
+              2024 - 2025
             </p>
             <p style={{
               fontSize: "1.05rem",
