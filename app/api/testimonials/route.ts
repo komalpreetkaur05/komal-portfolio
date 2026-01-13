@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 
 // Mock data - replace with your Firebase logic
-let testimonials: { id: number; name: string; company?: string; role?: string; email?: string; rating: number; message: string; createdAt: string }[] = [];
+let testimonials: { id: number; name: string; company?: string; role?: string; email?: string; message: string; createdAt: string }[] = [];
 
 export async function GET() {
   try {
@@ -15,10 +15,10 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, company, role, email, rating, message } = body;
+    const { name, company, role, email, message } = body;
 
-    if (!name || !message || !rating) {
-      return new NextResponse('Name, message, and rating are required', { status: 400 });
+    if (!name || !message) {
+      return new NextResponse('Name and message are required', { status: 400 });
     }
 
     // In a real app, you'd save this to Firebase
@@ -28,7 +28,6 @@ export async function POST(request: Request) {
       company,
       role,
       email,
-      rating,
       message,
       createdAt: new Date().toISOString(),
     };

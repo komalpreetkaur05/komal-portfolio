@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, FormEvent } from 'react';
-import styles from './testimonials.module.css'; // Corrected import path
+import styles from './testimonials.module.css'; 
 
 interface Testimonial {
   id: number;
@@ -9,7 +9,6 @@ interface Testimonial {
   company?: string;
   role?: string;
   email?: string;
-  rating: number;
   message: string;
   createdAt: string;
 }
@@ -20,7 +19,6 @@ export default function TestimonialsPage() {
   const [company, setCompany] = useState('');
   const [role, setRole] = useState('');
   const [email, setEmail] = useState('');
-  const [rating, setRating] = useState(0);
   const [message, setMessage] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -42,8 +40,8 @@ export default function TestimonialsPage() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (!name || !message || !rating) {
-      setError('Please fill in your name, a message, and provide a rating.');
+    if (!name || !message) {
+      setError('Please fill in your name and a message.');
       return;
     }
     setSubmitting(true);
@@ -53,7 +51,7 @@ export default function TestimonialsPage() {
       const response = await fetch('/api/testimonials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, company, role, email, rating, message }),
+        body: JSON.stringify({ name, company, role, email, message }),
       });
 
       if (!response.ok) throw new Error('Failed to submit testimonial.');
@@ -64,7 +62,6 @@ export default function TestimonialsPage() {
       setCompany('');
       setRole('');
       setEmail('');
-      setRating(0);
       setMessage('');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'An unknown error occurred.');
@@ -76,9 +73,9 @@ export default function TestimonialsPage() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.contentWrapper}>
-        <h1 className={styles.pageTitle}>Testimonials & Feedback</h1>
+        <h1 className={styles.pageTitle}>Testimonials</h1>
         <p className={styles.pageSubtitle}>
-          See what others are saying or leave your own feedback about my work.
+          See what others are saying and share your own experience.
         </p>
 
         <div className={styles.formContainer}>
@@ -86,7 +83,7 @@ export default function TestimonialsPage() {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Your Name"
+              placeholder="Full Name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               className={styles.input}
@@ -94,7 +91,7 @@ export default function TestimonialsPage() {
             />
             <input
               type="text"
-              placeholder="Company (Optional)"
+              placeholder="Company Name"
               value={company}
               onChange={(e) => setCompany(e.target.value)}
               className={styles.input}
@@ -102,7 +99,7 @@ export default function TestimonialsPage() {
             />
             <input
               type="text"
-              placeholder="Role (Optional)"
+              placeholder="Your Role"
               value={role}
               onChange={(e) => setRole(e.target.value)}
               className={styles.input}
@@ -110,28 +107,14 @@ export default function TestimonialsPage() {
             />
             <input
               type="email"
-              placeholder="Email (Optional)"
+              placeholder="Email Address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={styles.input}
               disabled={submitting}
             />
-            <div className={styles.ratingContainer}>
-              <label className={styles.ratingLabel}>Your Rating:</label>
-              <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <span
-                    key={star}
-                    className={star <= rating ? styles.starFilled : styles.star}
-                    onClick={() => setRating(star)}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
-            </div>
             <textarea
-              placeholder="Your feedback..."
+              placeholder="Share your thoughts..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               className={styles.textarea}
@@ -140,7 +123,7 @@ export default function TestimonialsPage() {
             />
             {error && <p className={styles.errorText}>{error}</p>}
             <button type="submit" className={styles.submitButton} disabled={submitting}>
-              {submitting ? 'Submitting...' : 'Submit Feedback'}
+              {submitting ? 'Submitting Feedback...' : 'Submit Your Feedback'}
             </button>
           </form>
         </div>
@@ -148,16 +131,6 @@ export default function TestimonialsPage() {
         <div className={styles.testimonialsGrid}>
           {testimonials.map((t) => (
             <div key={t.id} className={styles.testimonialCard}>
-              <div className={styles.stars}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <span
-                    key={star}
-                    className={star <= t.rating ? styles.starFilled : styles.star}
-                  >
-                    ★
-                  </span>
-                ))}
-              </div>
               <p className={styles.testimonialMessage}>"{t.message}"</p>
               <p className={styles.testimonialAuthor}>- {t.name}{t.company && `, ${t.company}`}</p>
             </div>

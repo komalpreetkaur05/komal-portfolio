@@ -39,7 +39,7 @@
 .formTitle {
   font-size: 1.75rem;
   font-weight: 600;
-  color: rgb(47, 5, 70);
+  color: #333;
   margin-bottom: 25px;
 }
 
@@ -47,7 +47,7 @@
 .textarea {
   width: 100%;
   padding: 12px 15px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #f7f7f7;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-size: 1rem;
@@ -61,7 +61,6 @@
   outline: none;
   border-color: #667eea;
 }
-
 
 .submitButton {
   width: 100%;
@@ -91,33 +90,6 @@
   margin-bottom: 15px;
 }
 
-.ratingContainer {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.ratingLabel {
-  margin-right: 10px;
-  color: white;
-}
-
-.stars {
-  display: flex;
-  gap: 5px;
-  cursor: pointer;
-}
-
-.star {
-  font-size: 1.5rem;
-  color: #ccc;
-}
-
-.starFilled {
-  font-size: 1.5rem;
-  color: #ffc107;
-}
-
 /* Testimonial Display Styles */
 .testimonialsGrid {
   display: grid;
@@ -127,29 +99,31 @@
 }
 
 .testimonialCard {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 25px;
+  background: white;
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonialCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .testimonialMessage {
-  font-size: 1.1rem;
-  color: white;
+  font-size: 1rem;
+  color: #666;
   line-height: 1.7;
-  font-style: italic;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  flex: 1;
 }
 
 .testimonialAuthor {
   font-size: 1rem;
   font-weight: 600;
-  color: #e0e0e0;
+  color: #333;
   text-align: right;
 }
