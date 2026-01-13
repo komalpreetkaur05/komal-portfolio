@@ -1,15 +1,11 @@
-import { PrismaClient } from '@prisma/client';
 import { NextResponse } from 'next/server';
 
-const prisma = new PrismaClient();
+// Mock data - replace with your Firebase logic
+let testimonials: { id: number; name: string; company?: string; role?: string; email?: string; rating: number; message: string; createdAt: string }[] = [];
 
 export async function GET() {
   try {
-    const testimonials = await prisma.testimonial.findMany({
-      orderBy: {
-        createdAt: 'desc',
-      },
-    });
+    // In a real app, you'd fetch this from Firebase
     return NextResponse.json(testimonials);
   } catch (error) {
     return new NextResponse('Internal Server Error', { status: 500 });
@@ -19,20 +15,26 @@ export async function GET() {
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, message } = body;
+    const { name, company, role, email, rating, message } = body;
 
-    if (!name || !message) {
-      return new NextResponse('Name and message are required', { status: 400 });
+    if (!name || !message || !rating) {
+      return new NextResponse('Name, message, and rating are required', { status: 400 });
     }
 
-    const testimonial = await prisma.testimonial.create({
-      data: {
-        name,
-        message,
-      },
-    });
+    // In a real app, you'd save this to Firebase
+    const newTestimonial = {
+      id: testimonials.length + 1,
+      name,
+      company,
+      role,
+      email,
+      rating,
+      message,
+      createdAt: new Date().toISOString(),
+    };
+    // testimonials.push(newTestimonial); // Add to the in-memory array for now
 
-    return NextResponse.json(testimonial, { status: 201 });
+    return NextResponse.json(newTestimonial, { status: 201 });
   } catch (error) {
     return new NextResponse('Internal Server Error', { status: 500 });
   }
